@@ -8,7 +8,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 var app = builder.Build();
 app.MapControllers();
-    
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -21,3 +21,4 @@ if (app.Environment.IsDevelopment())
 
 
 app.Run();
+public partial class Program { }

@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TflBackendService.Tests\**" />
+    <Content Remove="TflBackendService.Tests\**" />
+    <EmbeddedResource Remove="TflBackendService.Tests\**" />
+    <None Remove="TflBackendService.Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.23" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
