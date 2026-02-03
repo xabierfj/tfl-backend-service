@@ -26,9 +26,15 @@ public class TflControllerTests
         Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
         var json = await response.Content.ReadAsStringAsync();
-        var lines = JsonSerializer.Deserialize<List<dynamic>>(json);
+        using var document = JsonDocument.Parse(json);
+        var root = document.RootElement;
+        var items = root.GetProperty("items");
+        var pagination = root.GetProperty("pagination");
 
-        Assert.IsNotNull(lines);
-        Assert.AreEqual(2, lines!.Count);
+        Assert.AreEqual(2, items.GetArrayLength());
+        Assert.AreEqual(1, pagination.GetProperty("page").GetInt32());
+        Assert.AreEqual(10, pagination.GetProperty("pageSize").GetInt32());
+        Assert.AreEqual(2, pagination.GetProperty("totalCount").GetInt32());
+        Assert.AreEqual(1, pagination.GetProperty("totalPages").GetInt32());
     }
 }

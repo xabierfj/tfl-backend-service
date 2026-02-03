@@ -107,7 +107,7 @@ This endpoint is intended for monitoring and orchestration systems.
 Planned internal endpoints (subject to evolution):
 
 ```
-GET /lines
+GET /tfl/lines
 GET /lines/{id}/stations
 GET /incidents
 GET /network/graph
@@ -118,6 +118,19 @@ These endpoints will:
 * Normalize TfL data
 * Apply caching strategies
 * Remain stable even if the upstream API changes
+
+### Pagination and Sorting
+
+The `GET /tfl/lines` endpoint supports pagination and sorting via query parameters:
+
+```
+GET /tfl/lines?page=1&pageSize=10&sortBy=name&sortDirection=asc
+```
+
+Supported values:
+
+* `sortBy`: `id`, `name`, `modeName`
+* `sortDirection`: `asc`, `desc`
 
 ---
 
