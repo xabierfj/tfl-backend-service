@@ -1,0 +1,8 @@
+namespace TflBackendService.Dtos;
+
+public class TflLineResponse
+{
+    public string Id { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public string ModeName { get; set; } = string.Empty;
+}

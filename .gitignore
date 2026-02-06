@@ -20,3 +20,7 @@ Thumbs.db
 
 # Environment
 appsettings.Development.json
+
+# Claude
+CLAUDE.md
+.claude/
